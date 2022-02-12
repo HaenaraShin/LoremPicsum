@@ -1,11 +1,20 @@
+buildscript {
+    ext {
+        navigation_version = '2.4.1'
+    }
+    dependencies {
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
+    }
+}
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-  id 'com.android.application' version '7.1.0' apply false
-  id 'com.android.library' version '7.1.0' apply false
-  id 'org.jetbrains.kotlin.android' version '1.5.30' apply false
-  id 'org.jlleitschuh.gradle.ktlint' version '10.2.1'
+    id 'com.android.application' version '7.1.0' apply false
+    id 'com.android.library' version '7.1.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.5.30' apply false
+    id 'org.jlleitschuh.gradle.ktlint' version '10.2.1'
 }
 
 task clean(type: Delete) {
-  delete rootProject.buildDir
+    delete rootProject.buildDir
 }
