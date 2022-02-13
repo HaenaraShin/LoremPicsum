@@ -6,7 +6,7 @@ import dev.haenara.lorempicsum.base.BaseFragment
 import dev.haenara.lorempicsum.databinding.MainFragmentBinding
 
 class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment) {
-    private val viewModel: MainViewModel by viewModels()
+    override val viewModel: MainViewModel by viewModels()
     override fun initializeBinding(binding: MainFragmentBinding) {
         binding.tv.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_galleryFragment)

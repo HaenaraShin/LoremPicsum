@@ -1,7 +1,7 @@
 package dev.haenara.lorempicsum
 
-import androidx.lifecycle.ViewModel
+import dev.haenara.lorempicsum.base.BaseViewModel
 
-class MainViewModel : ViewModel() {
+class MainViewModel : BaseViewModel() {
     // TODO: Implement the ViewModel
 }

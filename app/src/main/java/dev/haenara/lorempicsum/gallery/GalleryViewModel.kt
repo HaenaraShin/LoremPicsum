@@ -1,7 +1,7 @@
 package dev.haenara.lorempicsum.gallery
 
-import androidx.lifecycle.ViewModel
+import dev.haenara.lorempicsum.base.BaseViewModel
 
-class GalleryViewModel : ViewModel() {
+class GalleryViewModel : BaseViewModel() {
     // TODO: Implement the ViewModel
 }
