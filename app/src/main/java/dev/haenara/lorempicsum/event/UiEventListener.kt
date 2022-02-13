@@ -3,6 +3,7 @@ package dev.haenara.lorempicsum.event
 import android.app.AlertDialog
 import android.content.Context
 import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
@@ -14,6 +15,7 @@ class UiEventListener(
     fun onEventReceived(event: UiEvent) {
         when (event) {
             is UiEvent.None -> doNothing()
+            is UiEvent.Back -> back()
             is UiEvent.Toast -> showToast(event)
             is UiEvent.Dialog -> shoDialog(event)
             is UiEvent.Navigation -> navigate(event)
@@ -22,6 +24,11 @@ class UiEventListener(
 
     private fun doNothing() {
         // do nothing
+    }
+
+    private fun back() {
+        (fragment as? DialogFragment)?.dismiss()
+            ?: fragment.findNavController().popBackStack()
     }
 
     private fun showToast(event: UiEvent.Toast) {

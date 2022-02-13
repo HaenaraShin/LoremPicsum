@@ -2,12 +2,16 @@ plugins {
     id 'kotlin'
     id 'org.jlleitschuh.gradle.ktlint'
     id 'org.jetbrains.kotlin.jvm'
+    id "java-test-fixtures"
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // JUnit
     testImplementation "junit:junit:4.12"
+    // Mockk
+    testImplementation "io.mockk:mockk:1.10.0"
+
     // RxJava3
     implementation "io.reactivex.rxjava3:rxjava:3.0.4"
 }

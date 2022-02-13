@@ -5,6 +5,7 @@ import androidx.navigation.NavDirections
 
 sealed class UiEvent {
     object None : UiEvent()
+    object Back : UiEvent()
     data class Toast(val stringOrRes: StringOrRes) : UiEvent()
     data class Dialog(val stringOrRes: StringOrRes, val button: DialogButton) : UiEvent()
     open class Navigation(val destination: NavDirections) : UiEvent()
