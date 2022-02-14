@@ -1,8 +1,7 @@
 package dev.haenara.lorempicsum.gallery
 
+import android.view.View
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import dev.haenara.lorempicsum.R
 import dev.haenara.lorempicsum.base.BaseDialogFragment
 import dev.haenara.lorempicsum.base.baseViewModels
@@ -17,5 +16,9 @@ class GalleryFragment : BaseDialogFragment<GalleryFragmentBinding>(R.layout.gall
 
     override fun initializeBinding(binding: GalleryFragmentBinding) {
         binding.ivGallery.setPhoto(args.image)
+        with(binding) {
+            photo = args.image
+            close = View.OnClickListener { _ -> dismiss() }
+        }
     }
 }

@@ -4,6 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".gallery.GalleryFragment">
 
+    <data>
+
+        <variable
+            name="photo"
+            type="dev.haenara.lorempicsum.domain.data.Image" />
+
+        <variable
+            name="close"
+            type="android.view.View.OnClickListener" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -13,10 +24,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_min="400dp"
+            app:photo="@{photo}"
             tools:ignore="ContentDescription"
             tools:src="@mipmap/ic_launcher_round" />
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="6dp"
+            android:onClickListener="@{close}"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_close_24"
+            app:layout_constraintEnd_toEndOf="@id/iv_gallery"
+            app:layout_constraintTop_toTopOf="@id/iv_gallery"
+            tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

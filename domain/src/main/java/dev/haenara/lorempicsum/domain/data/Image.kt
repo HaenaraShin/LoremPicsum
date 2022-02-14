@@ -17,4 +17,4 @@ data class Image(
     val width: Int,
     @SerialName("height")
     val height: Int
-): java.io.Serializable
+) : java.io.Serializable
