@@ -1,7 +1,10 @@
 package dev.haenara.lorempicsum.gallery
 
 import dev.haenara.lorempicsum.base.BaseViewModel
+import dev.haenara.lorempicsum.event.UiEvent
 
 class GalleryViewModel : BaseViewModel() {
-    // TODO: Implement the ViewModel
+    fun close() {
+        uiEvent.value = UiEvent.Back
+    }
 }
