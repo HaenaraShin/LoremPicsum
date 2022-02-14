@@ -1,30 +1,53 @@
 package dev.haenara.lorempicsum
 
-import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.haenara.lorempicsum.base.BaseFragment
+import dev.haenara.lorempicsum.base.baseViewModels
 import dev.haenara.lorempicsum.databinding.MainFragmentBinding
+import dev.haenara.lorempicsum.domain.LoadImageUseCase
 import dev.haenara.lorempicsum.io.ApiClient
 import dev.haenara.lorempicsum.main.ImageListAdapter
+import dev.haenara.lorempicsum.main.ImageLoadRepo
+import dev.haenara.lorempicsum.util.ui.addScrollObservable
 
 class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment) {
-    override val viewModel: MainViewModel by viewModels()
+    private val args: MainFragmentArgs by navArgs()
+    override val viewModel: MainViewModel by baseViewModels {
+        MainViewModel(
+            lastRequest = LoadImageUseCase.Request(1, LoadImageUseCase.LIMIT),
+        ) { request ->
+            ImageLoadRepo(ApiClient.api).loadImages(request.pageCount, request.limit)
+        }
+    }
 
-    private val adapter = ImageListAdapter(listOf()) { image ->
-        viewModel.showDetailImage(image)
+    private val adapter: ImageListAdapter by lazy {
+        ImageListAdapter(args.images) { image ->
+            viewModel.showDetailImage(image)
+        }
     }
 
     override fun initializeBinding(binding: MainFragmentBinding) {
-        binding.rvImageList.adapter = adapter
-        binding.rvImageList.layoutManager = LinearLayoutManager(requireContext())
-        ApiClient.api.getRandomImages(1, 20).subscribe({ images ->
-            requireActivity().runOnUiThread {
-                adapter.updateImage(images)
+        with(binding) {
+
+            rvImageList.adapter = adapter
+            rvImageList.layoutManager = LinearLayoutManager(requireContext())
+            rvImageList.addScrollObservable(VISIBLE_THRESHOLD).also { observable ->
+                viewModel.setScrollObservable(observable)
             }
-        },
-            { e ->
-                e.printStackTrace()
-            }
-        )
+        }
+
+        viewModel.result.observe(viewLifecycleOwner) { result ->
+            adapter.updateImage(result.Images)
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.disposeAll()
+    }
+
+    companion object {
+        private const val VISIBLE_THRESHOLD = 4
     }
 }

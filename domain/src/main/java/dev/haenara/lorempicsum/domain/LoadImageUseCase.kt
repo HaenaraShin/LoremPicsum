@@ -1,11 +1,13 @@
 package dev.haenara.lorempicsum.domain
 
 import dev.haenara.lorempicsum.domain.data.Image
+import dev.haenara.lorempicsum.domain.data.Images
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
+import java.io.Serializable
 
 interface LoadImageUseCase {
-    val api: (Request) -> Single<List<Image>>
+    val api: (Request) -> Single<Images>
     val scrollObservable: Observable<Unit>
 
     var lastRequest: Request?
@@ -37,9 +39,9 @@ interface LoadImageUseCase {
     data class Result(
         val request: Request,
         val Images: List<Image>
-    )
+    ) : Serializable
 
     companion object {
-        private const val LIMIT = 30
+        const val LIMIT = 30
     }
 }

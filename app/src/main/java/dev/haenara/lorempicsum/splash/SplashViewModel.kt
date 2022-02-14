@@ -3,13 +3,14 @@ package dev.haenara.lorempicsum.splash
 import dev.haenara.lorempicsum.R
 import dev.haenara.lorempicsum.base.BaseViewModel
 import dev.haenara.lorempicsum.domain.SplashUseCase
+import dev.haenara.lorempicsum.domain.data.Images
 import dev.haenara.lorempicsum.event.DialogButton
 import dev.haenara.lorempicsum.event.StringOrRes
 import dev.haenara.lorempicsum.event.UiEvent
 import io.reactivex.rxjava3.core.Single
 
 class SplashViewModel(
-    override val api: Single<List<Any>>
+    override val api: Single<Images>
 ) : BaseViewModel(), SplashUseCase {
     init {
         runSplash()
@@ -26,7 +27,9 @@ class SplashViewModel(
         )
     }
 
-    override fun onSuccess(list: List<Any>) {
-        navigate(SplashFragmentDirections.actionSplashFragmentToMainFragment())
+    override fun onSuccess(list: Images) {
+        navigate(
+            SplashFragmentDirections.actionSplashFragmentToMainFragment(list)
+        )
     }
 }

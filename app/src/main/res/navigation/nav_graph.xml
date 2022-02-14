@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_mainFragment_to_galleryFragment"
             app:destination="@id/galleryFragment" />
+        <argument
+            android:name="images"
+            app:argType="dev.haenara.lorempicsum.domain.data.Images" />
     </fragment>
     <dialog
         android:id="@+id/galleryFragment"
