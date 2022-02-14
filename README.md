@@ -1,5 +1,5 @@
 LoremPicsum
-===========================
+======================================================
 
 ### A simple android app to show random images with **Lorem Picsum API**.
 
@@ -15,6 +15,7 @@ LoremPicsum
 - [x] Glide
 - [x] Retrofit
 - [x] Kotlinx Serialization
+- [x] ktlint
 - [ ] Unit Test
 - [ ] UI Test
 
