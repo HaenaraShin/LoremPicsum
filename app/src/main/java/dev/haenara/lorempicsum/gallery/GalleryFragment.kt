@@ -20,5 +20,6 @@ class GalleryFragment : BaseDialogFragment<GalleryFragmentBinding>(R.layout.gall
             photo = args.image
             close = View.OnClickListener { _ -> dismiss() }
         }
+        requireDialog().setCancelable(false)
     }
 }

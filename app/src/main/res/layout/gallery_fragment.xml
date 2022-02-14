@@ -34,13 +34,28 @@
             tools:src="@mipmap/ic_launcher_round" />
 
         <ImageView
+            android:id="@+id/btn_close_shadow"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/ic_baseline_close_24"
+            app:layout_constraintBottom_toBottomOf="@id/btn_close"
+            app:layout_constraintEnd_toEndOf="@id/btn_close"
+            app:layout_constraintStart_toStartOf="@id/btn_close"
+            app:layout_constraintTop_toTopOf="@id/btn_close"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
             android:id="@+id/btn_close"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="6dp"
             android:onClickListener="@{close}"
             android:padding="10dp"
-            android:src="@drawable/ic_baseline_close_24"
+            android:src="@drawable/ic_baseline_close"
             app:layout_constraintEnd_toEndOf="@id/iv_gallery"
             app:layout_constraintTop_toTopOf="@id/iv_gallery"
             tools:ignore="ContentDescription" />
