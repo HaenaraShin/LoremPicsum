@@ -41,8 +41,8 @@ class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment) {
         }
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroyView() {
+        super.onDestroyView()
         viewModel.disposeAll()
     }
 

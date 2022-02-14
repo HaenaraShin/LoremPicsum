@@ -16,7 +16,7 @@ class MainViewModel(
     val result = MutableLiveData<LoadImageUseCase.Result>()
 
     private lateinit var _scrollObservable: Observable<Unit>
-    override val scrollObservable: Observable<Unit> by lazy { _scrollObservable }
+    override val scrollObservable: Observable<Unit> get() = _scrollObservable
 
     private val disposableBag = mutableListOf<Disposable>()
 
