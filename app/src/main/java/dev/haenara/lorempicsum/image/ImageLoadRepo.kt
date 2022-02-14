@@ -1,4 +1,4 @@
-package dev.haenara.lorempicsum.main
+package dev.haenara.lorempicsum.image
 
 import dev.haenara.lorempicsum.domain.LoadImageUseCase
 import dev.haenara.lorempicsum.domain.data.Images

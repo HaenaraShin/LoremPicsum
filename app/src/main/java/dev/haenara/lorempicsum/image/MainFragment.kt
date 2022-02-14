@@ -1,14 +1,13 @@
-package dev.haenara.lorempicsum
+package dev.haenara.lorempicsum.image
 
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import dev.haenara.lorempicsum.R
 import dev.haenara.lorempicsum.base.BaseFragment
 import dev.haenara.lorempicsum.base.baseViewModels
 import dev.haenara.lorempicsum.databinding.MainFragmentBinding
 import dev.haenara.lorempicsum.domain.LoadImageUseCase
 import dev.haenara.lorempicsum.io.ApiClient
-import dev.haenara.lorempicsum.main.ImageListAdapter
-import dev.haenara.lorempicsum.main.ImageLoadRepo
 import dev.haenara.lorempicsum.util.ui.addScrollObservable
 
 class MainFragment : BaseFragment<MainFragmentBinding>(R.layout.main_fragment) {

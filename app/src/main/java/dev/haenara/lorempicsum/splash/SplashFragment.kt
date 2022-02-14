@@ -5,7 +5,7 @@ import dev.haenara.lorempicsum.base.BaseFragment
 import dev.haenara.lorempicsum.base.baseViewModels
 import dev.haenara.lorempicsum.databinding.SplashFragmentBinding
 import dev.haenara.lorempicsum.io.ApiClient
-import dev.haenara.lorempicsum.main.ImageLoadRepo
+import dev.haenara.lorempicsum.image.ImageLoadRepo
 
 class SplashFragment : BaseFragment<SplashFragmentBinding>(R.layout.splash_fragment) {
     override val viewModel: SplashViewModel by baseViewModels {

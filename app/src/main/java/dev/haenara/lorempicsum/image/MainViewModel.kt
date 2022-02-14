@@ -1,4 +1,4 @@
-package dev.haenara.lorempicsum
+package dev.haenara.lorempicsum.image
 
 import androidx.lifecycle.MutableLiveData
 import dev.haenara.lorempicsum.base.BaseViewModel

@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="dev.haenara.lorempicsum.MainFragment"
+        android:name="dev.haenara.lorempicsum.image.MainFragment"
         android:label="main_fragment"
         tools:layout="@layout/main_fragment">
         <action

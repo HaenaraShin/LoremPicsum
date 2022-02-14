@@ -1,4 +1,4 @@
-package dev.haenara.lorempicsum.main
+package dev.haenara.lorempicsum.image
 
 import android.view.LayoutInflater
 import android.view.View
