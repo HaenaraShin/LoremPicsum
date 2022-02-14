@@ -13,10 +13,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            app:layout_constraintHeight_min="300dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_min="300dp"
+            app:layout_constraintWidth_min="400dp"
             tools:ignore="ContentDescription"
             tools:src="@mipmap/ic_launcher_round" />
     </androidx.constraintlayout.widget.ConstraintLayout>

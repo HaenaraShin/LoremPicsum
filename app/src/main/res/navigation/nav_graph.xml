@@ -17,7 +17,7 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@id/mainFragment"
+            app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -33,6 +33,10 @@
         android:id="@+id/galleryFragment"
         android:name="dev.haenara.lorempicsum.gallery.GalleryFragment"
         android:label="gallery_fragment"
-        tools:layout="@layout/gallery_fragment" />
+        tools:layout="@layout/gallery_fragment">
+        <argument
+            android:name="image"
+            app:argType="dev.haenara.lorempicsum.domain.data.Image" />
+    </dialog>
 
 </navigation>

@@ -4,6 +4,7 @@ plugins {
     id 'org.jlleitschuh.gradle.ktlint'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'org.jetbrains.kotlin.plugin.serialization'
 }
 
 kapt {
@@ -61,7 +62,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-//    kapt "com.android.databinding:compiler:3.5.0"
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0'
+
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$navigation_version"
@@ -70,6 +72,17 @@ dependencies {
     implementation "io.reactivex.rxjava3:rxjava:3.0.4"
     // RxAndroid
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+
+    // Retrofit2
+    def retrofit_version = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+
+    // OkHttp
+    def okhttp_version = "4.8.0"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
     def glide_version = '4.11.0'
     kapt "com.github.bumptech.glide:compiler:$glide_version"

@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import dev.haenara.lorempicsum.event.UiEvent
 import dev.haenara.lorempicsum.event.UiEventListener
 
 interface BaseView<B : ViewDataBinding> {
@@ -36,6 +37,11 @@ abstract class BaseFragment<B : ViewDataBinding>(
         }
         initializeBinding(mBinding)
         return mBinding.root
+    }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.uiEvent.value = UiEvent.None
     }
 }
 
